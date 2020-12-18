@@ -1,41 +1,12 @@
-pipeline {
-    agent any
+timestamps {
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                sh 'pip install -r requirements.txt'
-                echo 'Running'
-                sh 'python web.py'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+node () {
+
+	stage ('sba-python-project - Checkout') {
+ 	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/kenneth-cruz/sba.jenkins-github-pipeline.git']]]) 
+	}
+        stage ('build'){
+            powershell 'python web.py'
         }
     }
-}
-
-
-pipeline {
-  agent { docker { image 'python:3.7.2' } }
-  stages {
-    stage('build') {
-      steps {
-        sh 'pip install -r requirements.txt'
-      }
-    }
-    stage('test') {
-      steps {
-        sh 'python test.py'
-      }   
-    }
-  }
 }
