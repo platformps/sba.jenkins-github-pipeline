@@ -1,0 +1,15 @@
+// Powered by Infostretch 
+
+timestamps {
+
+node () {
+
+	stage ('sba - Checkout') {
+ 	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/srinanpravij/sba.jenkins-github-pipeline.git']]]) 
+	}
+	stage ('sba - Build') {
+ 	
+		powershell "python web.py"
+	}
+}
+}
