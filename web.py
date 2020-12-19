@@ -7,3 +7,8 @@ def main():
  
 if __name__ == "__main__":
     app.run(host="localhost", port=7000, debug=True)
+
+@app.route('/shutdown', methods=['POST'])
+def shutdown():
+    shutdown_server()
+    return 'Server shutting down...'
