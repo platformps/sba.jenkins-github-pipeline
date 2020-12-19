@@ -1,6 +1,11 @@
-from alpine:latest
+from python:rc-slim 
 
-run apk update \
-&& apk upgrade \
-&& apk add --no-cache python3-dev \
-&& apk add --no-cache py3-pip
+
+WORKDIR /app
+copy . /app
+run pip install -r requirements.txt
+
+EXPOSE 5000
+
+entrypoint ["python"]
+cmd ["web.py"]
