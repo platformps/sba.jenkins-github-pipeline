@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "python3 web.py &"
+                sh "python3 web.py"
             }
         }
     }
