@@ -1,3 +1,12 @@
+# For SBA evaluation, ignore this Dockerfile.
+
+
+# USER NOTE:
+# Successfully used this image as a standalone to run web.py file. However
+# still haven't found solution to incorporate Jenkins.
+
+
+
 # Use a base of python. It comes with a linux under the hood anyway.
 from python:rc-slim 
 
