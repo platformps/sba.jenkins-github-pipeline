@@ -8,7 +8,6 @@ node () {
  	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/TomKugelman/sba.jenkins-github-pipeline']]]) 
 	}
 	stage ('sba.python_jenkins - Build') {
-		powershell 'pip install requirements.txt'
         powershell 'python web.py' 	
 	}
 }
