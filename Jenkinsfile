@@ -40,13 +40,13 @@ pipeline {
     stages {
         stage('Pip Install Dependencies') {
             steps {
-                sh 'sudo pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
 // 
         stage('Starting') {
             steps {
-                sh 'sudo python web.py'
+                sh 'python web.py'
             }
         }
     }
