@@ -1,0 +1,12 @@
+timestamps {
+
+node () {
+
+	stage ('SBA_PythonDeployment - Checkout') {
+ 	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/mikehj122498/sba.jenkins-github-pipeline.git']]])
+	}
+	stage ('SBA_PythonDeployment - Build') {
+ 	 powershell "python web.py"
+	}
+}
+}
