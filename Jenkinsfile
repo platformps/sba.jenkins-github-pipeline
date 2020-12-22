@@ -2,14 +2,14 @@ pipeline {
     agent {
         docker {
             image 'python' 
-            args '-v /root/.m2:/root/.m2' 
+            args '-v /root/.m2:/root/.m2 -p 8070:8070' 
         }
     }
     stages {
         stage('Set Up') {
             steps {
                 script {
-                    sh 'rm -rf sba.jenkins-github-pipelines'
+                    sh 'rm -rf sba.jenkins-github-pipeline'
                 }
             }
         }
