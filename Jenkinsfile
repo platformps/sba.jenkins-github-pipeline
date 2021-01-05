@@ -15,14 +15,16 @@ pipeline {
         }
         stage('SCM Checkout') {
             steps {
-                sh 'git clone https://github.com/nmm131/sba.jenkins-github-pipeline.git $PWD/sba.jenkins-github-pipeline'
-                sh 'pip install -r $PWD/sba.jenkins-github-pipeline/requirements.txt'
+				script {
+					sh 'git clone https://github.com/nmm131/sba.jenkins-github-pipeline.git'
+					sh 'pip install -r ./sba.jenkins-github-pipeline/requirements.txt'
+				}
             }
         }
         stage('Compile-Package-Test') {
             steps {
                 script {
-                    dir('$PWD/sba.jenkins-github-pipeline') {
+                    dir('./sba.jenkins-github-pipeline') {
                         sh "python web.py"
                     }
                 }
