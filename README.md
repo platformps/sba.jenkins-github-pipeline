@@ -66,4 +66,4 @@ TEST TEST
 * from the browser, navigate to the _forked_ project from **your** github account.
 * click the `Pull Requests` tab.
 * select `New Pull Request`
-* take a screenshot of your spinning flasks and send it via vanvas to both Bill and Steve for full credit
+* take a screenshot of your spinning flasks and send it via canvas to both Bill and Steve for full credit
