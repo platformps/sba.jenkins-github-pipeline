@@ -1,5 +1,5 @@
 # SBA Jenkins Github Python Flask Pipeline
-* **Objective** - Clone and modify this repository locally to ensure that Jenkins can successfully build this project.
+* **Objective** - Clone and modify this repository locally to ensure that Jenkins can successfully build(e.g. run the python script) this project.
 * **Purpose** - To demonstrate continuous integration skillset
 
 
